@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystem.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    [Migration("20250607113144_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250609142603_AddHotelEntity")]
+    partial class AddHotelEntity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,27 @@ namespace BookingSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("BookingSystem.Models.Hotel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hotels");
+                });
 
             modelBuilder.Entity("BookingSystem.Models.Reservation", b =>
                 {
@@ -41,12 +62,29 @@ namespace BookingSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("HotelId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("HotelId");
+
                     b.ToTable("Reservations");
+                });
+
+            modelBuilder.Entity("BookingSystem.Models.Reservation", b =>
+                {
+                    b.HasOne("BookingSystem.Models.Hotel", null)
+                        .WithMany("Reservation")
+                        .HasForeignKey("HotelId");
+                });
+
+            modelBuilder.Entity("BookingSystem.Models.Hotel", b =>
+                {
+                    b.Navigation("Reservation");
                 });
 #pragma warning restore 612, 618
         }

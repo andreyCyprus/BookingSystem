@@ -8,5 +8,6 @@ namespace BookingSystem.Data
         public BookingContext(DbContextOptions<BookingContext> options) : base(options) { }
 
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
     }
 }
