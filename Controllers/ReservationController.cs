@@ -1,5 +1,5 @@
 using BookingSystem.Data;
-using BookingSystem.Services;
+using BookingSystem.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using BookingSystem.Models;
 

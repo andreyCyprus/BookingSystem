@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookingSystem.Models;
+using BookingSystem.Interfaces;
 using BookingSystem.Repositories;
 
 namespace BookingSystem.Services

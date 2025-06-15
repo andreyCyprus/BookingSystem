@@ -1,6 +1,6 @@
 using BookingSystem.Data;
 using BookingSystem.Models;
-using BookingSystem.Services;
+using BookingSystem.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingSystem.Controllers

@@ -1,7 +1,7 @@
 using BookingSystem.Data;
 using BookingSystem.Models;
 
-namespace BookingSystem.Services
+namespace BookingSystem.Interfaces
 {
     public interface IHotelService
     {

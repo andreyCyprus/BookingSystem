@@ -1,6 +1,7 @@
 using BookingSystem.Data;
-using Microsoft.EntityFrameworkCore;
 using BookingSystem.Models;
+using Microsoft.EntityFrameworkCore;
+using BookingSystem.Interfaces;
 
 namespace BookingSystem.Repositories
 {

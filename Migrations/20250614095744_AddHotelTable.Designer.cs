@@ -4,6 +4,7 @@ using BookingSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingSystem.Migrations
 {
     [DbContext(typeof(BookingContext))]
-    partial class BookingContextModelSnapshot : ModelSnapshot
+    [Migration("20250614095744_AddHotelTable")]
+    partial class AddHotelTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,40 +68,11 @@ namespace BookingSystem.Migrations
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("RestaurantId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("HotelId");
 
-                    b.HasIndex("RestaurantId");
-
                     b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("BookingSystem.Models.Restaurant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Restaurants");
                 });
 
             modelBuilder.Entity("BookingSystem.Models.Reservation", b =>
@@ -106,18 +80,9 @@ namespace BookingSystem.Migrations
                     b.HasOne("BookingSystem.Models.Hotel", null)
                         .WithMany("Reservation")
                         .HasForeignKey("HotelId");
-
-                    b.HasOne("BookingSystem.Models.Restaurant", null)
-                        .WithMany("Reservation")
-                        .HasForeignKey("RestaurantId");
                 });
 
             modelBuilder.Entity("BookingSystem.Models.Hotel", b =>
-                {
-                    b.Navigation("Reservation");
-                });
-
-            modelBuilder.Entity("BookingSystem.Models.Restaurant", b =>
                 {
                     b.Navigation("Reservation");
                 });

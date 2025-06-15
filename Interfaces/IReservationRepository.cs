@@ -3,7 +3,7 @@ using BookingSystem.Models;
 
 
 
-namespace BookingSystem.Repositories
+namespace BookingSystem.Interfaces 
 {
 	public interface IReservationRepository
 	{
