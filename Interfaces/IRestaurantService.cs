@@ -9,6 +9,6 @@ namespace BookingSystem.Interfaces
         Task<Restaurant?> GetRestaurantByIdAsync(int id);
         Task AddRestaurantAsync(Restaurant restaurant);
         Task UpdateRestaurantAsync(Restaurant restaurant);
-        Task DeleteRestaurantAsync(int id);
+        Task <bool> DeleteRestaurantAsync(int id);
     }
 }

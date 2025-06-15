@@ -29,9 +29,19 @@ namespace BookingSystem.Services
         {
             await _restaurantRepository.UpdateAsync(restaurant);
         }
-        public async Task DeleteRestaurantAsync(int id)
+        public async Task<bool> DeleteRestaurantAsync(int id)
         {
-            await _restaurantRepository.DeleteAsync(id);
+            var restaurant = await _restaurantRepository.GetByIdAsync(id);
+
+            if (restaurant == null || restaurant.IsDeleted)
+                return false;
+
+            restaurant.IsDeleted = true;
+            await _restaurantRepository.UpdateAsync(restaurant);
+
+            return true;
         }
+
+
     }
 }

@@ -35,9 +35,18 @@ namespace BookingSystem.Services
             await _hotelRepository.UpdateAsync(hotel);
         }
 
-        public async Task DeleteHotelAsync(int id)
+        public async Task<bool> DeleteHotelAsync(int id)
         {
-            await _hotelRepository.DeleteAsync(id);
+            var hotel = await _hotelRepository.GetByIdAsync(id);
+
+            if (hotel == null || hotel.IsDeleted)
+                return false;
+
+            hotel.IsDeleted = true;
+            await _hotelRepository.UpdateAsync(hotel);
+
+            return true;
         }
+
     }
 }

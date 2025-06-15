@@ -7,5 +7,6 @@ namespace BookingSystem.Models
         required public string Address { get; set; } 
         public int Capacity { get; set; }
         public ICollection<Reservation>? Reservation { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }

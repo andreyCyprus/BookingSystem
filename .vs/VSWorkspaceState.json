@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Interfaces",
+    "\\Repositories",
+    "\\Services"
   ],
-  "SelectedNode": "\\Interfaces",
+  "SelectedNode": "\\Interfaces\\IHotelService.cs",
   "PreviewInSolutionExplorer": false
 }

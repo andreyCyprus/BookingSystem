@@ -10,5 +10,14 @@ namespace BookingSystem.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // √лобальные фильтры дл€ м€гкого удалени€
+            modelBuilder.Entity<Hotel>().HasQueryFilter(h => !h.IsDeleted);
+            modelBuilder.Entity<Restaurant>().HasQueryFilter(r => !r.IsDeleted);
+        }
     }
 }

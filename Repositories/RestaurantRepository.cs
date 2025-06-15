@@ -14,7 +14,7 @@ namespace BookingSystem.Repositories
         }
         public async Task<IEnumerable<Restaurant>> GetAllAsync()
         {
-            return await _context.Restaurants.ToListAsync();
+            return await _context.Restaurants.Where(h => !h.IsDeleted).ToListAsync();
         }
         public async Task<Restaurant?> GetByIdAsync(int id)
         {
@@ -35,7 +35,8 @@ namespace BookingSystem.Repositories
             var restaurant = await _context.Restaurants.FindAsync(id);
             if (restaurant != null)
             {
-                _context.Restaurants.Remove(restaurant);
+                restaurant.IsDeleted = true;
+                _context.Restaurants.Update(restaurant);
                 await _context.SaveChangesAsync();
             }
         }
