@@ -1,103 +1,72 @@
-# Booking System - ASP.NET Core Web API
+п»ї# BookingSystem
 
-## Общее описание
+A modular ASP.NET Core Web API application for managing bookings across various services including hotels, restaurants, and car rentals.
 
-Этот проект является модульной системой бронирования, 
-реализованной на ASP.NET Core Web API. 
-Основная цель проекта — постепенное расширение системы на бронирование 
-ресторанов, отелей, авиабилетов и др.
+## Architecture
 
-## Структура проекта
-
-* **/Controllers** — API-контроллеры
-* **/Models** — доменные модели
-* **/Data** — контекст базы данных (BookingContext)
-* **/Services** — для добавления логики (в будущем)
-
-## Структура слоёв
+This project follows a clean layered architecture with clear separation of concerns:
 
 BookingSystem/
- - Controllers/          <-- Обрабатывают HTTP-запросы
- - Data/                 <-- Контекст БД и сущности
- - Repositories/         <-- Интерфейсы и реализации репозиториев
- - Services/             <-- Интерфейсы и реализации бизнес-логики
- - Program.cs            <-- Конфигурация приложения
+в”‚
+в”њв”Ђв”Ђ Controllers/ # API endpoints (presentation layer)
+в”њв”Ђв”Ђ Data/ # DbContext and migrations
+в”њв”Ђв”Ђ Interfaces/ # Abstractions for repositories and services
+в”њв”Ђв”Ђ Models/ # Domain models (entities)
+в”њв”Ђв”Ђ Repositories/ # Data access logic (EF Core)
+в”њв”Ђв”Ђ Services/ # Business logic
+в”њв”Ђв”Ђ Program.cs # Application entry point and DI setup
+в””в”Ђв”Ђ BookingSystem.csproj # Project file
 
 
-## Базовые объекты
+## вњ… Features Implemented
 
-### Reservation.cs
+-  **Hotel Management** (CRUD + soft delete)
+-  **Restaurant Management** (CRUD + soft delete)
+-  **Car Rental Management** (CRUD + soft delete)
+-  **Reservation System** (linking clients to services)
+-  **Soft Deletion** (filtering out `IsDeleted` entities globally)
+-  **Service and Repository Abstractions**
+-  **Dependency Injection (DI)**
 
-```csharp
-public class Reservation
+## рџ”§ Planned Features
+
+  - **Authentication & Authorization**
+  
+  - Role separation: `Admin`, `Client`
+  - Registration, Login, JWT support
+
+  - **Client Management**
+   
+  - User profile
+  - Associated reservations
+
+  - **Admin Panel (API-level)**
+  
+  - Manage users, services, and bookings
+
+## Technologies
+
+- **.NET 8 / ASP.NET Core**
+- **Entity Framework Core**
+- **SQL Server (LocalDb or your choice)**
+- **C# 12**
+- **RESTful API principles**
+
+## Example Entity
+
+public class Hotel
+
 {
     public int Id { get; set; }
-    public string CustomerName { get; set; }
-    public string BookingType { get; set; } // hotel, flight, restaurant
-    public DateTime ReservationDate { get; set; }
+    public string Name { get; set; } = null!;
+    public string Address { get; set; } = null!;
+    public bool IsDeleted { get; set; } = false;
 }
-```
 
-### BookingContext.cs
 
-```csharp
-public class BookingContext : DbContext
-{
-    public BookingContext(DbContextOptions<BookingContext> options) : base(options) { }
 
-    public DbSet<Reservation> Reservations { get; set; }
-}
-```
 
-### ReservationController.cs
 
-```csharp
-[ApiController]
-[Route("api/[controller]")]
-public class ReservationController : ControllerBase
-{
-    private readonly BookingContext _context;
 
-    public ReservationController(BookingContext context)
-    {
-        _context = context;
-    }
 
-    [HttpGet]
-    public IActionResult GetReservations() =>
-        Ok(_context.Reservations.ToList());
 
-    [HttpPost]
-    public IActionResult CreateReservation(Reservation reservation)
-    {
-        _context.Reservations.Add(reservation);
-        _context.SaveChanges();
-        return Ok(reservation);
-    }
-}
-```
-
-## База данных
-
-База данных развернута через LocalDB, настроена в appsettings.json:
-
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=BookingSystemDb;Trusted_Connection=True;"
-}
-```
-
-## Развитие
-
-* Все модули (ресторан, отель, авиабилет) будут добавляться постепенно
-* Планируется добавление Repository-слоя, DTO объектов, Service Layer
-* Добавим Swagger, аутентификацию и роли в будущем
-
-## Запуск
-
-* `dotnet ef migrations add InitialCreate`
-* `dotnet ef database update`
-* `dotnet run`
-
-"# BookingSystem" 
-"# BookingSystem" 

@@ -156,11 +156,6 @@ C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingSystem
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingSystem.sourcelink.json
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets\msbuild.BookingSystem.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets\msbuild.build.BookingSystem.props
-C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookingSystem.props
-C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookingSystem.props
-C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\scopedcss\bundle\BookingSystem.styles.css
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingS.E11A8EBE.Up2Date
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingSystem.dll
@@ -168,3 +163,10 @@ C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\refint\Bookin
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingSystem.pdb
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\BookingSystem.genruntimeconfig.cache
 C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\ref\BookingSystem.dll
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Андрей и Елена\BookingSystem\bin\Debug\net8.0\BookingSystem.staticwebassets.endpoints.json
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\Андрей и Елена\BookingSystem\obj\Debug\net8.0\staticwebassets.build.endpoints.json

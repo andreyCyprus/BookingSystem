@@ -19,6 +19,9 @@ builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 builder.Services.AddScoped<IHotelService, HotelService>();
 builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+builder.Services.AddScoped<ICarRentalRepository, CarRentalRepository>();
+builder.Services.AddScoped<ICarRentalService, CarRentalService>();
+
 
 
 // Add EF Core and configure DB context

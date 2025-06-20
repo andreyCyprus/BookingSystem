@@ -10,6 +10,8 @@ namespace BookingSystem.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
+        public DbSet<CarRental> CarRentals { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
