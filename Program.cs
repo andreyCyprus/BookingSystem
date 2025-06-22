@@ -21,6 +21,7 @@ builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IRestaurantService, RestaurantService>();
 builder.Services.AddScoped<ICarRentalRepository, CarRentalRepository>();
 builder.Services.AddScoped<ICarRentalService, CarRentalService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 
 

@@ -18,7 +18,7 @@ BookingSystem/
 └── BookingSystem.csproj # Project file
 
 
-## ✅ Features Implemented
+## Features Implemented
 
 -  **Hotel Management** (CRUD + soft delete)
 -  **Restaurant Management** (CRUD + soft delete)
@@ -28,7 +28,7 @@ BookingSystem/
 -  **Service and Repository Abstractions**
 -  **Dependency Injection (DI)**
 
-## 🔧 Planned Features
+## Planned Features
 
   - **Authentication & Authorization**
   
